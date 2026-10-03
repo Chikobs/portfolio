@@ -1,0 +1,21 @@
+:root{ --blue:#0d6efd; --blue-dark:#084298; --light:#f5f8ff; }
+body{ background:var(--light); font-family:'Segoe UI',system-ui,sans-serif; color:#1a2b4a; }
+.navbar-custom{ background:white; box-shadow:0 4px 20px rgba(13,110,253,.08); border-bottom:3px solid var(--blue); }
+.navbar-brand{ font-weight:800; color:var(--blue)!important; font-size:1.6rem; }
+.nav-link{ font-weight:600; color:#334155!important; }
+.nav-link.active,.nav-link:hover{ color:var(--blue)!important; }
+.hero{ background:linear-gradient(105deg,var(--blue) 0%,#3d8bfd 45%,#dbeafe 100%); padding:50px 0; color:white; }
+.hero h1{ font-weight:800; font-size:2.5rem; line-height:1.2; }
+.btn-blue{ background:var(--blue); color:white; border:none; padding:12px 32px; font-weight:700; border-radius:8px; box-shadow:0 6px 0 var(--blue-dark); }
+.btn-blue:hover{ background:var(--blue-dark); color:white; }
+.section-title{ font-weight:800; font-size:1.2rem; color:var(--blue); border-left:5px solid var(--blue); padding-left:12px; margin-bottom:18px; }
+.product-card{ background:white; border:2px solid #e0eaff; border-radius:14px; overflow:hidden; transition:.2s; height:100%; }
+.product-card:hover{ transform:translateY(-5px); border-color:var(--blue); box-shadow:0 12px 24px rgba(13,110,253,.15); }
+.product-card img{ height:190px; object-fit:contain; padding:16px; background:#f8fbff; }
+.btn-cart{ background:var(--blue); color:white; width:100%; border-radius:8px; font-weight:600; margin-top:8px; }
+.category-card{ background:white; border-radius:14px; overflow:hidden; border:2px solid #e0eaff; text-align:center; transition:.2s; cursor:pointer; }
+.category-card:hover{ border-color:var(--blue); }
+.category-card img{ height:130px; width:100%; object-fit:cover; }
+.offcanvas-cart{ width:420px!important; }
+footer{ background:white; border-top:3px solid var(--blue); margin-top:50px; padding-top:30px; }
+@media(max-width:768px){ .hero h1{ font-size:1.8rem } .offcanvas-cart{ width:88%!important } .hero{ padding:30px 0 } }
