@@ -1,40 +1,46 @@
+
+  const form = document.getElementById("contactForm");
+  const status = document.getElementById("status");
+
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+
+    // show message
+    status.style.display = "block";
+    status.innerText = "Message sent ✅";
+    status.style.background = "#00c853";
+    status.style.color = "white";
+
+    // clear form
+    form.reset();
+
+    // hide after 4 seconds
+    setTimeout(() => {
+      status.style.display = "none";
+    }, 4000);
+  });
+
+
+
+
+  // Make each div show on click - only the one you click
 document.addEventListener('DOMContentLoaded', () => {
-    const htmlElement = document.documentElement;
-    const themeButton = document.getElementById('themeButton');
+  
+  const allCards = document.querySelectorAll(
+    '.matrix-card, .techdeck-tile-module, .project-card, .contact-card, .projects-tile-module'
+  );
 
-    // Function to change button styles dynamically based on active theme
-    const updateButtonUI = (theme) => {
-        if (theme === 'dark') {
-            // Dark Mode Active: Make moon button glow gold/yellow
-            themeButton.className = 'btn btn-outline-warning p-3 rounded-circle fs-3';
-        } else {
-            // Light Mode Active: Keep moon button dark gray/slate
-            themeButton.className = 'btn btn-outline-dark p-3 rounded-circle fs-3';
-        }
-    };
-
-    // 1. Initialize interface using saved local storage theme state
-    const currentTheme = localStorage.getItem('theme') || 'light';
-    htmlElement.setAttribute('data-bs-theme', currentTheme);
-    updateButtonUI(currentTheme);
-
-    // 2. Add click event to toggle theme state on demand
-    themeButton.addEventListener('click', () => {
-        const activeTheme = htmlElement.getAttribute('data-bs-theme');
-        const nextTheme = activeTheme === 'dark' ? 'light' : 'dark';
-        
-        // Apply theme changes to DOM and save choice
-        htmlElement.setAttribute('data-bs-theme', nextTheme);
-        localStorage.setItem('theme', nextTheme);
-        
-        // Visual refresh for the button
-        updateButtonUI(nextTheme);
+  allCards.forEach(card => {
+    card.addEventListener('click', (e) => {
+      // Remove active from others if you want only one at a time
+      // If you want many to stay open, delete this next 3 lines
+      allCards.forEach(c => {
+        if (c !== card) c.classList.remove('active');
+      });
+      
+      // Toggle only the one you clicked
+      card.classList.toggle('active');
     });
+  });
+
 });
-
-
-
-
-
-
-
